@@ -1,0 +1,33 @@
+﻿@model InvoiceBill.Models.tblInvoice
+
+@using (Html.BeginForm("Edit", "Invoice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    @Html.HiddenFor(Model=>Model.InvoiceId)
+
+    <table class="table">
+
+        <tr>
+            <td>Enter Product Name</td>
+            <td>@Html.EditorFor(Model => Model.ProductName, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+        <tr>
+            <td>Enter Product Desc</td>
+            <td>@Html.EditorFor(Model => Model.ProductDesc, new { htmlAttributes = new { @class = "form-control" } })</td>
+
+        </tr>
+        <tr>
+            <td>Enter Product Price</td>
+            <td>@Html.EditorFor(Model => Model.Price, new { htmlAttributes = new { @class = "form-control" } })</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-danger" value="Edit Product" />
+            </td>
+
+        </tr>
+    </table>
+
+
+}

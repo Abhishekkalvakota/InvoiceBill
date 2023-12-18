@@ -1,0 +1,30 @@
+﻿@{
+    Layout = null; // Use this line if you don't want to include a layout
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>PDF Viewer</title>
+</head>
+<body>
+    <div>
+        <button class="btn btn-danger">@Html.ActionLink("Open PDF", "ViewPdf", "Invoice", null, new { @class = "btn btn-primary", @id = "btnOpenPdf" })</button>
+    </div>
+
+    <div id="pdfContainer" style="display:none;">
+        <object id="pdfViewer" data="" type="application/pdf" width="100%" height="600px"></object>
+    </div>
+
+    <script>
+        document.getElementById('btnOpenPdf').addEventListener('click', function () {
+            debugger;
+            var pdfContainer = document.getElementById('pdfContainer');
+            var pdfViewer = document.getElementById('pdfViewer');
+
+            pdfViewer.data = "@Url.Action("ViewPdf", "Invoice")"; // Replace "Pdf" with your controller name
+            pdfContainer.style.display = 'block';
+        });
+    </script>
+</body>
+</html>

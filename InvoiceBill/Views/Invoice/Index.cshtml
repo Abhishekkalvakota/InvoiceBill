@@ -1,0 +1,60 @@
+﻿@model List<InvoiceBill.Models.tblInvoice>
+
+
+<a href="@Url.Action("Create","Invoice")" class="btn btn-success">Add Product</a>
+<br />
+<br />
+<br />
+
+<table class="table table-hover table-bordered table-dark">
+    <thead>
+        <tr>
+            <th scope="col">InvoiceId</th>
+            <th scope="col">ProductName</th>
+            <th scope="col">Product Description </th>
+            <th scope="col">Price</th>
+            <th scope="col">Functions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td scope="col">@item.InvoiceId</td>
+                <td scope="col">@item.ProductName</td>
+                <td scope="col">@item.ProductDesc</td>
+                <td scope="col">@item.Price</td>
+                <td>
+
+                    <button type="button" class="btn btn-warning">
+                        @Html.ActionLink("Print Invoice", "PrintInvoice", "Invoice", new { @id = item.InvoiceId }, new
+                        {
+                            htmlAttributes = new { @class = "form-control", style = "color: white; text-decoration: none;" }
+                        })
+                    </button>
+
+                    <button type="button" class="btn btn-info">
+                        @Html.ActionLink("Edit", "Edit", "Invoice", new { @id = item.InvoiceId }, new
+                   {
+                       htmlAttributes = new { @class = "form-control", style = "color: white; text-decoration: none;" }
+                   })
+                    </button>
+
+                    <button type="button" class="btn btn-danger">
+                        @Html.ActionLink("Delete", "Delete", "Invoice", new { @id = item.InvoiceId }, new
+                   {
+                       htmlAttributes = new { @class = "form-control", style = "color: white; text-decoration: none;" }
+                   })
+                    </button>
+
+                </td>
+            </tr>
+
+
+        }
+    </tbody>
+</table>
+
+
+

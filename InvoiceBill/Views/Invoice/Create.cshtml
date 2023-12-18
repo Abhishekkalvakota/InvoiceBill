@@ -1,0 +1,38 @@
+﻿@model InvoiceBill.Models.tblInvoice
+
+<h2>Add product</h2>
+
+@using (Html.BeginForm("Create", "Invoice", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(true)
+
+    <table class="table">
+
+        <tr>
+            <td>Enter Product Name</td>
+            <td>@Html.EditorFor(Model => Model.ProductName, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td style="color: red;">@Html.ValidationMessageFor(Model => Model.ProductName)</td> 
+        </tr>
+        <tr>
+            <td>Enter Product Desc</td>
+            <td>@Html.EditorFor(Model => Model.ProductDesc, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td style="color: red;">@Html.ValidationMessageFor(Model => Model.ProductDesc)</td>
+
+        </tr>
+        <tr>
+            <td>Enter Product Price</td>
+            <td>@Html.EditorFor(Model => Model.Price, new { htmlAttributes = new { @class = "form-control" } })</td>
+            <td style="color: red;">@Html.ValidationMessageFor(Model => Model.Price)</td>
+        </tr>
+
+        <tr>
+            <td>
+                <input type="submit" class="btn btn-danger" value="Add Product" />
+            </td>
+
+        </tr>
+    </table>
+
+
+}
+
